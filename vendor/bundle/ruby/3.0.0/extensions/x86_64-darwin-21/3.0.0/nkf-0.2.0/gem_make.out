@@ -1,0 +1,19 @@
+current directory: /Users/mac/Medics/Medics/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+/Users/mac/.rvm/rubies/ruby-3.0.0/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/mac/Medics/Medics/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240301-51337-7xxq0n sitelibdir\=./.gem.20240301-51337-7xxq0n clean
+
+current directory: /Users/mac/Medics/Medics/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240301-51337-7xxq0n sitelibdir\=./.gem.20240301-51337-7xxq0n
+compiling nkf.c
+linking shared-object nkf.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/mac/Medics/Medics/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240301-51337-7xxq0n sitelibdir\=./.gem.20240301-51337-7xxq0n install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 nkf.bundle ./.gem.20240301-51337-7xxq0n
+
+current directory: /Users/mac/Medics/Medics/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240301-51337-7xxq0n sitelibdir\=./.gem.20240301-51337-7xxq0n clean
