@@ -1,20 +1,20 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 //UTILS
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from '../../theme/metrics'
 
-const CategoryCard = ({ item, index }) => {
+const CategoryCard = ({ item, index, onPress }) => {
 
     const itemStyle = index !== 0 && index !== 4 ? { marginLeft: wp(4.6) } : {};
 
     return (
-        <View style={[styles.container, itemStyle]}>
+        <TouchableOpacity style={[styles.container, itemStyle]} onPress={onPress}>
             <View style={styles.imageContainer}>
                 <Image source={item?.icon} />
             </View>
             <Text style={styles.text}>{item?.category}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         backgroundColor: 'white',
-        borderRadius: wp(2),
+        borderRadius: wp(5),
         marginBottom: hp(1),
         width: wp(19),
         height: hp(9),
