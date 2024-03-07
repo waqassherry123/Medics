@@ -3,6 +3,7 @@ import React from 'react'
 
 //packages
 import AppIntroSlider from 'react-native-app-intro-slider';
+import { useNavigation } from '@react-navigation/native';
 
 //utilities
 import { color } from '../../../theme/colors';
@@ -14,6 +15,7 @@ import Slides from './Slides';
 
 
 const IntroSlides = () => {
+  const navigation = useNavigation()
 
     const slidesContent = [
         {
@@ -44,6 +46,8 @@ const IntroSlides = () => {
       </TouchableOpacity>
     );
   };
+
+  const onDone = () => navigation.navigate("GetStartedScreen")
   
 
   return (
@@ -56,7 +60,7 @@ const IntroSlides = () => {
         renderItem={renderSlides}
         renderSkipButton={renderSkipButton}
         data={slidesContent}
-      // onDone={onDone}
+        onDone={onDone}
       />   
       </View>
     </SafeAreaView>

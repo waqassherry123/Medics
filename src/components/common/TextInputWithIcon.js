@@ -4,7 +4,7 @@ import { View, TextInput, Image, StyleSheet } from 'react-native';
 //utils
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from '../../theme/metrics';
 
-const TextInputWithIcon = ({ icon, placeholder, ...rest }) => {
+const TextInputWithIcon = ({ icon, placeholder,onChangeText, ...rest }) => {
   return (
     <View style={styles.inputContainer}>
       <Image source={icon} style={styles.icon} />
@@ -12,6 +12,7 @@ const TextInputWithIcon = ({ icon, placeholder, ...rest }) => {
         style={styles.input}
         placeholder={placeholder}
         placeholderTextColor="gray"
+        onChangeText={onChangeText} 
         {...rest}
       />
     </View>
