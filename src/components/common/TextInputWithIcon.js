@@ -9,7 +9,7 @@ const TextInputWithIcon = ({ icon, placeholder,onChangeText, ...rest }) => {
     <View style={styles.inputContainer}>
       <Image source={icon} style={styles.icon} />
       <TextInput
-        style={styles.input}
+        style={[styles.input, { height: rest.height? rest.height : hp(4)}]}
         placeholder={placeholder}
         placeholderTextColor="gray"
         onChangeText={onChangeText} 

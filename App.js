@@ -21,6 +21,7 @@ import Profile from './src/screens/Profile/Profile';
 
 //utils
 import * as images from "./src/assets/images/index";
+import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -85,6 +86,7 @@ const App = () => {
           <Stack.Screen name="VerificationScreen" component={VerificationScreen} options={{ headerShown: false }} />
           <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} options={{ headerShown: false }} />
           <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
+          <Stack.Screen name="FindDoctor" component={FindDoctors} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
