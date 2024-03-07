@@ -45,3 +45,5 @@ export const Doc1 = require ('./Doc1.png')
 export const Doc2 = require ('./Doc2.png')
 export const Doc3 = require ('./Doc3.png')
 export const Doc4 = require ('./Doc4.png')
+export const LearnMore = require ('./LearnMore.png')
+

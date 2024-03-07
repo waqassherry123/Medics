@@ -12,6 +12,9 @@ import * as images from "../../assets/images/index";
 import TextInputWithIcon from '../../components/common/TextInputWithIcon';
 import * as space from '../../components/common/Spacer';
 import CategoryCard from '../../components/DoctorConsultation/CategoryCard';
+import LearnMoreCard from '../../components/LearnMoreCard';
+import { Title } from '../../components/common/Text';
+import { color } from '../../theme/colors';
 
 
 
@@ -26,6 +29,11 @@ const Home = () => {
         { category: 'Hospital', icon: images.Hospital },
         { category: 'Ambulance', icon: images.Ambulance },
     ];
+
+    const LearnMore = [
+        { description: 'Early protection for your family health', icon: images.LearnMore },
+        { description: 'Find your desire healt solution', icon: images.Slide1 },
+      ];
     const handleCategoryPress = (category) => {
         if (category == "Doctor"){
             navigation.navigate("FindDoctor")
@@ -56,13 +64,22 @@ const Home = () => {
                   onChangeText={(text) => setSearch(text)}
               />
 
-              <View style={{}}>
+              <View>
                   <FlatList
                       data={categories}
                       renderItem={renderItem}
                       keyExtractor={(item, index) => index.toString()}
                       numColumns={4}
                   />
+              </View>
+              <space.s2 />
+                  <LearnMoreCard data={LearnMore} />
+                  <space.s1/>
+              <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+              <Title> Top Doctors </Title>
+                  <Text style={{color:color.Primary,fontSize:14,fontWeight:"400",}}>
+                     See all
+                  </Text>
               </View>
           </View>
       </SafeAreaView>
