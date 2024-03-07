@@ -1,4 +1,4 @@
-import React, { useRef ,useState} from 'react';
+import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 
 //packages
@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 //utils
 import { color } from '../../../theme/colors';
 import * as images from "../../../assets/images/index";
-import { heightPercentageToDP as hp ,widthPercentageToDP as wp } from '../../../theme/metrics';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from '../../../theme/metrics';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -35,23 +35,6 @@ const IntroSlides = () => {
 
     const scrollViewRef = useRef();
 
-
-    // const handleNextSlide = () => {
-    //     if (scrollViewRef.current) {
-    //         const nextIndex = activeSlideIndex + 1;
-    //         if (activeSlideIndex === slidesContent.length) {
-    //             // If it's the last slide, navigate to another screen
-    //             navigation.navigate('GetStartedScreen');
-    //         } else {
-    //             scrollViewRef.current.scrollTo({
-    //                 x: (scrollViewRef.current.contentOffset?.x || 0) + Dimensions.get('window').width,
-    //                 animated: true,
-    //             });
-    //             setActiveSlideIndex((prev)=> prev+1);
-    //             console.log("active index", activeSlideIndex)
-    //         }
-    //     }
-    // };
     const handleNextSlide = () => {
         if (scrollViewRef.current) {
             const nextIndex = activeSlideIndex + 1;
@@ -67,47 +50,39 @@ const IntroSlides = () => {
             }
         }
     };
-    
-    
-     console.log(activeSlideIndex)
 
     return (
-        <SafeAreaView style={{flex:1}} >
+        <SafeAreaView style={{ flex: 1 }} >
             <TouchableOpacity onPress={() => navigation.navigate("GetStartedScreen")}>
                 <Text style={{ textAlign: "right", paddingRight: wp(6), color: "#A1A8B0", fontSize: 16 }}>Skip</Text>
             </TouchableOpacity>
-          <View style={styles.container}>
-            <ScrollView
-                ref={scrollViewRef}
-                horizontal
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={styles.scrollContent}
-            >
-                {slidesContent.map((slide, i) => (
-                    <TouchableOpacity key={slide.key} style={styles.slide} activeOpacity={1} >
-                        <Image source={slide.image} style={styles.image} />
-                        <View style={{ backgroundColor: "#F5F7FF", height: 160, width: "85%", borderRadius: 15, padding: 9 }}>
-                            <Text style={{ fontSize: 22, lineHeight: 29.7, fontWeight: "700" }}>{slide.title}</Text>
-                            <View style={{ flexDirection: "row", justifyContent: "", alignItems: "center", justifyContent: "space-between", marginVertical: 30 }}>
-                                {/* <View style={{flexDirection:"row"}}>
-                                <View key={i} style={[styles.dot, { backgroundColor: activeSlideIndex === i ? color.Primary : 'blue' }]} /> */}
-                                {/* <View style={styles.dot} />
-                                <View style={styles.dot} /> */}
-                                {/* </View> */}
-                                <View style={styles.dotcontainer}>
-                                    <View style={[styles.dot, activeSlideIndex === 0 && styles.activeDot]} />
-                                    <View style={[styles.dot, activeSlideIndex === 1 && styles.activeDot]} />
-                                    <View style={[styles.dot, activeSlideIndex === 2 && styles.activeDot]} />
+            <View style={styles.container}>
+                <ScrollView
+                    ref={scrollViewRef}
+                    horizontal
+                    pagingEnabled
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.scrollContent}
+                >
+                    {slidesContent.map((slide, i) => (
+                        <TouchableOpacity key={slide.key} style={styles.slide} activeOpacity={1} >
+                            <Image source={slide.image} style={styles.image} />
+                            <View style={{ backgroundColor: "#F5F7FF", height: hp(20), width: "85%", borderRadius: wp(4), padding: wp(2) }}>
+                                <Text style={{ fontSize: 22, lineHeight: 29.7, fontWeight: "700" }}>{slide.title}</Text>
+                                <View style={{ flexDirection: "row", justifyContent: "", alignItems: "center", justifyContent: "space-between", marginVertical: 30 }}>
+                                    <View style={styles.dotcontainer}>
+                                        <View style={[styles.dot, activeSlideIndex === 0 && styles.activeDot]} />
+                                        <View style={[styles.dot, activeSlideIndex === 1 && styles.activeDot]} />
+                                        <View style={[styles.dot, activeSlideIndex === 2 && styles.activeDot]} />
+                                    </View>
+                                    <TouchableOpacity style={styles.nextIconContainer} onPress={handleNextSlide}>
+                                        <Image source={images.RightArrow} />
+                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity style={styles.nextIconContainer} onPress={handleNextSlide}>
-                                    <Image source={images.RightArrow} />
-                                </TouchableOpacity>
                             </View>
-                        </View>
-                    </TouchableOpacity>
-                ))}
-            </ScrollView>
+                        </TouchableOpacity>
+                    ))}
+                </ScrollView>
             </View>
         </SafeAreaView>
     );
@@ -129,15 +104,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image: {
-        width: 468,
-        height: 450,
+        width: "80%",
+        height: "60%",
         resizeMode: 'contain',
-        marginBottom: 20,
+        marginBottom: wp(5),
     },
     nextIconContainer: {
         width: 50,
         height: 50,
-        borderRadius: 25,
+        borderRadius: wp(6.5),
         backgroundColor: color.Primary,
         justifyContent: 'center',
         alignItems: 'center',
@@ -146,17 +121,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-      },
-      dot: {
+    },
+    dot: {
         width: wp(5),
         height: hp(0.5),
         borderRadius: 5,
-        backgroundColor:'rgba(25, 154, 142, 0.3)',
+        backgroundColor: 'rgba(25, 154, 142, 0.3)',
         marginHorizontal: 4,
-      },
-      activeDot: {
-        backgroundColor: color.Primary, // Active dot color
-      },
+    },
+    activeDot: {
+        backgroundColor: color.Primary,
+    },
 });
 
 export default IntroSlides;

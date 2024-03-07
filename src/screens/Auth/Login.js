@@ -47,7 +47,7 @@ const Login = () => {
                 visible={modalVisible}
                 onPress={() => {
                     setModalVisible(false);
-                    navigation.navigate("Login");
+                    navigation.navigate('MainTabs', { screen: 'Home' });
                 }}
             />
 
