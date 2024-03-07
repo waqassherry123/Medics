@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Modal } from 'react-native'
 import React, { useState } from 'react'
 
 //packages
@@ -15,18 +15,41 @@ import TextInputWithIcon  from '../../components/common/TextInputWithIcon';
 import * as space from '../../components/common/Spacer'
 import Button from '../../components/common/Button';
 import { SocialButton } from '../../components/common/Button';
+import SuccessModal from '../../components/common/SuccessModal';
 
 const Login = () => {
     const navigation = useNavigation();
-    
-    const forgotPassword = () => {
-      console.log("clicked")
-    }
+
+    // states
+    const [modalVisible, setModalVisible] = useState(false);
+
+    // methods
+    const handleLogin = () => {
+        setModalVisible(true);
+    };
+
+    const closeModal = () => {
+        setModalVisible(false); 
+    };
+
+    const forgotPassword = () => navigation.navigate("ForgotPasswordScreen")
 
     return (
         <SafeAreaView style={{ flex: 1, alignItems: 'center', }}>
             <Header title="Login" />
             <space.s5 />
+
+            {/* Welcome Modal */}
+            <SuccessModal
+                title="Yeay! Welcome Back"
+                subTitle="Once again you login successfully"
+                text="into medidoc app"
+                visible={modalVisible}
+                onPress={() => {
+                    setModalVisible(false);
+                    navigation.navigate("Login");
+                }}
+            />
 
             {/* Input Fields */}
             <View style={{ alignItems: 'center', paddingHorizontal: wp(6) }}>
@@ -40,20 +63,20 @@ const Login = () => {
                     placeholder="Enter your password"
                     secureTextEntry={true}
                 />
-                <TouchableOpacity onPress={forgotPassword} style={{alignSelf:'flex-end', }}>
+                <TouchableOpacity onPress={forgotPassword} style={{ alignSelf: 'flex-end', }}>
                     <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
                 </TouchableOpacity>
             </View>
             <space.s4 />
 
             {/* Login Button */}
-            <View style={{ paddingHorizontal: wp(6), width:"100%" }} >
-                <Button title="Login" background={color.Primary} width="100%" />
+            <View style={{ paddingHorizontal: wp(6), width: "100%" }} >
+                <Button title="Login" background={color.Primary} width="100%" onPress={handleLogin} />
             </View>
             <space.s3 />
 
             {/* Navigate to SignUp */}
-            <TouchableOpacity onPress={()=> navigation.navigate("SignUp")}>
+            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
                 <Text style={{ color: '#717784', fontSize: 15, fontWeight: '400' }}>Don’t have an account?<Text style={{ color: color.Primary }}> Sign Up</Text></Text>
             </TouchableOpacity>
             <space.s3 />
@@ -66,7 +89,7 @@ const Login = () => {
             </View>
 
             {/* Social Buttons */}
-            <View style={{ paddingHorizontal: wp(6), width:"100%" }}>
+            <View style={{ paddingHorizontal: wp(6), width: "100%" }}>
                 <SocialButton
                     icon={images.Google} // Replace with your icon path
                     title="Sign in with Google"
@@ -105,23 +128,23 @@ const styles = StyleSheet.create({
         paddingRight: wp(2),
         fontSize: 14,
         color: color.Primary,
-        fontWeight:'500'
+        fontWeight: '500'
     },
     textContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         marginVertical: 20,
         paddingHorizontal: wp(6)
-      },
-      line: {
+    },
+    line: {
         flex: 1,
         height: 1,
         backgroundColor: '#A1A8B0',
         marginHorizontal: 10,
-      },
-      text: {
+    },
+    text: {
         fontSize: 16,
         fontWeight: '500',
         color: '#A1A8B0',
-      },
+    },
 })
