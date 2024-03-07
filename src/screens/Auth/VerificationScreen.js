@@ -4,7 +4,6 @@ import React, { useRef } from 'react'
 //packages
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
-import OTPTextInput from 'react-native-otp-textinput';
 
 //components
 import Header from '../../components/common/Header';
