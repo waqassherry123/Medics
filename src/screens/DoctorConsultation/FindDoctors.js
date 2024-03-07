@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View, FlatList } from 'react-native'
+import { SafeAreaView, StyleSheet, View, FlatList, Image, Text } from 'react-native'
 import React, {useState} from 'react'
 
 // components
@@ -25,6 +25,43 @@ const FindDoctors = () => {
         { category: 'Surgeon', icon: images.Syringe },
         { category: 'Cardiologist', icon: images.Cardiologist },
     ];
+
+    const doctorDetails = [
+        {
+            docName: "Dr. Marcus",
+            field: "Lungs Specialist",
+            rating: 4.5,
+            distance: "2 miles",
+            about: "Dr. John Doe is a highly experienced pulmonologist with expertise in treating various lung diseases.",
+            image: images.Doc1,
+        },
+        {
+            docName: "Dr. Jane Smith",
+            field: "Dentist",
+            rating: 4.8,
+            distance: "1.5 miles",
+            about: "Dr. Jane Smith specializes in providing comprehensive dental care for patients of all ages.",
+            image: images.Doc2,
+        },
+        {
+            docName: "Dr. David",
+            field: "Psychiatrist",
+            rating: 4.2,
+            distance: "3 miles",
+            about: "Dr. David Johnson is dedicated to providing compassionate mental health care and treatment.",
+            image: images.Doc4,
+        },
+        {
+            docName: "Dr. Maria",
+            field: "Cardiologist",
+            rating: 4.5,
+            distance: "3 miles",
+            about: "Dr. David Johnson is specilized and global awad winner in cardiology and world famous for her skills.",
+            image: images.Doc3,
+        },
+        
+    ];
+    
 
     const renderItem = ({item, index}) => {
         return(
@@ -57,6 +94,18 @@ const FindDoctors = () => {
               </View>
               <space.s3 />
               <Title >Recommended Doctors</Title>
+              <View style={styles.card}>
+                  <Image source={doctorDetails[0].image} style={styles.image} />
+                  <View style={styles.content}>
+                      <Text style={styles.docName}>{doctorDetails[0].docName}</Text>
+                      <Text style={styles.field}>{doctorDetails[0].field}</Text>
+                      <space.s3 />
+                      <View style={{flexDirection:'row'}}>
+                          <Text style={styles.rating}>{doctorDetails[0].rating}</Text>
+                          <Text style={styles.distance}>Distance: {doctorDetails[0].distance}</Text>
+                      </View>
+                  </View>
+              </View>
           </View>
       </SafeAreaView>
   )
@@ -64,4 +113,40 @@ const FindDoctors = () => {
 
 export default FindDoctors
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    card: {
+        flexDirection: 'row',
+        borderRadius: wp(3),
+        backgroundColor: '#ffffff',
+        paddingVertical: hp(2),
+        paddingHorizontal: wp(5),
+    },
+    image: {
+        width: wp(25),
+        height: wp(25),
+        borderRadius:wp(50),
+        marginRight: wp(3),
+    },
+    content: {
+        padding: 10,
+    },
+    docName: {
+        fontSize: 16,
+        fontWeight: '600',
+        letterSpacing: 0.7,
+        marginBottom: hp(0.5)
+    },
+    field: {
+        fontSize: 12,
+        color: '#ADADAD',
+    },
+    rating: {
+        fontSize: 14,
+        color: '#888',
+        marginRight: wp(1),
+    },
+    distance: {
+        fontSize: 14,
+        color: '#888',
+    },
+})
