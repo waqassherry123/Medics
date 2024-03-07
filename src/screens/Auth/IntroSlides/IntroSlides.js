@@ -1,20 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, Image  } from 'react-native'
-import React from 'react'
-
-//packages
-import AppIntroSlider from 'react-native-app-intro-slider';
-
-//utilities
+import React, { useRef } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { color } from '../../../theme/colors';
-import * as images from "../../../assets/images/index"
-
-//screens
-import Slides from './Slides';
-
-
+import * as images from "../../../assets/images/index";
+import { heightPercentageToDP } from '../../../theme/metrics';
+import { SafeAreaView } from 'react-native-safe-area-context';
+// import { AntDesign } from '@expo/vector-icons'; // Import AntDesign icons
 
 const IntroSlides = () => {
-
     const slidesContent = [
         {
             key: 'screen1',
@@ -28,46 +20,93 @@ const IntroSlides = () => {
         },
         {
             key: 'screen3',
-            title: 'Get connect our Online Consultation',
+            title: 'Get connected to our Online Consultation',
             image: images.Slide3,
         },
     ];
 
-  const renderSlides = ({ item }) => {
-    return <Slides item={item} />;
-  };
+    const scrollViewRef = useRef();
 
-  const renderSkipButton = () => {
+    const handleNextSlide = () => {
+        if (scrollViewRef.current) {
+            scrollViewRef.current.scrollTo({
+                x: (scrollViewRef.current.contentOffset?.x || 0) + Dimensions.get('window').width,
+                animated: true,
+            });
+        }
+    };
+
     return (
-      <TouchableOpacity style={styles.skipButton}>
-        <Text style={styles.skipButtonText}>Skip</Text>
-      </TouchableOpacity>
+        <SafeAreaView style={{flex:1}} >
+          <Text style={{textAlign:"right",paddingRight:10,color:color.Gray}}>Skip</Text>
+          <View style={styles.container}>
+            <ScrollView
+                ref={scrollViewRef}
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={styles.scrollContent}
+            >
+                {slidesContent.map((slide, index) => (
+                    <TouchableOpacity key={slide.key} style={styles.slide} activeOpacity={1} onPress={handleNextSlide}>
+                        <Image source={slide.image} style={styles.image} />
+                            <View style={{backgroundColor:"#F5F7FF",height:160,width:"85%",borderRadius:15,padding:9}}>
+                            <Text style={{fontSize:22,lineHeight:29.7,fontWeight:"700"}}>{slide.title}</Text>
+                            <View style={{flexDirection:"row",justifyContent:"",alignItems:"center",justifyContent:"space-between",marginVertical:30}}>
+                            <View style={{flexDirection:"row"}}>
+                                <View style={styles.dot} />
+                                <View style={styles.dot} />
+                                <View style={styles.dot} />
+                            </View>
+                            <TouchableOpacity style={styles.nextIconContainer} onPress={handleNextSlide}>
+                     <Image source={images.RightArrow}/>
+                            </TouchableOpacity>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                ))}
+            </ScrollView>
+            </View>
+        </SafeAreaView>
     );
-  };
-  
-
-  return (
-    <SafeAreaView style={{backgroundColor: color.bkgBlue}}>
-      <View style={{backgroundColor: 'aqua'}}>
-        <Image source={images.Slide1} />
-      <AppIntroSlider
-        dotStyle={{ backgroundColor: 'rgba(25, 154, 142, 0.4)' }}
-        activeDotStyle={{ backgroundColor: color.Primary }}
-        renderItem={renderSlides}
-        renderSkipButton={renderSkipButton}
-        data={slidesContent}
-      // onDone={onDone}
-      />   
-      </View>
-    </SafeAreaView>
-  )
-}
-
-export default IntroSlides
+};
 
 const styles = StyleSheet.create({
-  skipButtonText: {
-    fontSize: 18,
-    color: 'red',
-}
-})
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: color.bkgBlue,
+    },
+    scrollContent: {
+        flexGrow: 1,
+    },
+    slide: {
+        width: Dimensions.get('window').width,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    image: {
+        width: 468,
+        height: 450,
+        resizeMode: 'contain',
+        marginBottom: 20,
+    },
+    dot: {
+        width: 10,
+        height: 4,
+        borderRadius: 3,
+        backgroundColor: color.Primary,
+        marginRight: 5,
+    },
+    nextIconContainer: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        backgroundColor: color.Primary,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export default IntroSlides;

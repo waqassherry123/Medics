@@ -5,7 +5,7 @@ import React from 'react'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from '../../../theme/metrics'
 
 const Slides = ({item}) => {
-  console.log("item", item?.image)
+  console.log("item", item)
   return (
     <View style={styles.container}>
      <Image source={item?.image} style={styles.image}  />
