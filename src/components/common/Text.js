@@ -20,9 +20,10 @@ export const Title = ({children, ...props}) => {
 
   const styles = StyleSheet.create({
     title: {
-        fontSize: hp(2),
+        fontSize: 18,
         lineHeight: hp(3),
         fontWeight: '600',
         height: 'auto',
+        color:"#101623",
       },
   })

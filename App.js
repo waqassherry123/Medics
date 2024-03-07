@@ -13,6 +13,7 @@ import SignUp from './src/screens/Auth/SignUp';
 import ForgotPasswordScreen from './src/screens/Auth/ForgotPasswordScreen';
 import VerificationScreen from './src/screens/Auth/VerificationScreen';
 import CreatePasswordScreen from './src/screens/Auth/CreatePasswordScreen';
+import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ const App = () => {
           <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} options={{ headerShown: false }} />
           <Stack.Screen name="VerificationScreen" component={VerificationScreen} options={{ headerShown: false }} />
           <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="FindDoctor" component={FindDoctors} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
