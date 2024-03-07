@@ -41,3 +41,5 @@ export const Syringe = require ('./Syringe.png')
 export const Pharmacy = require ('./Pharmacy.png')
 export const Hospital = require ('./Hospital.png')
 export const Ambulance = require ('./Ambulance.png')
+export const LearnMore = require ('./LearnMore.png')
+
