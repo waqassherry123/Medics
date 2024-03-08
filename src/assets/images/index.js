@@ -48,4 +48,5 @@ export const Doc4 = require ('./Doc4.png')
 export const LearnMore = require ('./LearnMore.png')
 export const Star = require ('./Star.png')
 export const Location = require ('./Location.png')
+export const Chat = require ('./Chat.png')
 
