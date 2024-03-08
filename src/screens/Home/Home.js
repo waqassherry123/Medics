@@ -13,6 +13,7 @@ import TextInputWithIcon from '../../components/common/TextInputWithIcon';
 import * as space from '../../components/common/Spacer';
 import CategoryCard from '../../components/DoctorConsultation/CategoryCard';
 import LearnMoreCard from '../../components/LearnMoreCard';
+import DoctorCard from '../../components/DoctorCard';
 import { Title } from '../../components/common/Text';
 import { color } from '../../theme/colors';
 
@@ -34,6 +35,42 @@ const Home = () => {
         { description: 'Early protection for your family health', icon: images.LearnMore },
         { description: 'Find your desire healt solution', icon: images.Slide1 },
       ];
+
+      const doctorDetails = [
+        {
+            docName: "Dr. Marcus Horizon",
+            field: "Chardiologist",
+            rating: 4.5,
+            distance: "2 miles",
+            about: "Dr. John Doe is a highly experienced pulmonologist with expertise in treating various lung diseases.",
+            image: images.LearnMore,
+        },
+        {
+            docName: "Dr. Maria Elena",
+            field: "Psychologist",
+            rating: 4.8,
+            distance: "1.5 miles",
+            about: "Dr. Jane Smith specializes in providing comprehensive dental care for patients of all ages.",
+            image: images.Slide1,
+        },
+        {
+            docName: "Dr. Stevi Jessi",
+            field: "Orthopedist",
+            rating: 4.2,
+            distance: "3 miles",
+            about: "Dr. David Johnson is dedicated to providing compassionate mental health care and treatment.",
+            image: images.Slide2,
+        },
+        {
+            docName: "Dr. Maria",
+            field: "Cardiologist",
+            rating: 4.5,
+            distance: "3 miles",
+            about: "Dr. David Johnson is specilized and global awad winner in cardiology and world famous for her skills.",
+            image: images.Slide3,
+        },
+    ];
+
     const handleCategoryPress = (category) => {
         if (category == "Doctor"){
             navigation.navigate("FindDoctor")
@@ -81,6 +118,14 @@ const Home = () => {
                      See all
                   </Text>
               </View>
+              <space.s1/>
+              <FlatList
+                    data={doctorDetails}
+                    renderItem={({ item }) => <DoctorCard doctor={item} />}
+                    keyExtractor={(item, index) => index.toString()}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                />
           </View>
       </SafeAreaView>
   )
