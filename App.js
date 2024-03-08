@@ -18,10 +18,11 @@ import Home from './src/screens/Home/Home';
 import Message from './src/screens/Message/Message';
 import Schedule from './src/screens/Schedule/Schedule';
 import Profile from './src/screens/Profile/Profile';
+import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
+import DoctorDetail from './src/screens/DoctorConsultation/DoctorDetail';
 
 //utils
 import * as images from "./src/assets/images/index";
-import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -87,6 +88,7 @@ const App = () => {
           <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} options={{ headerShown: false }} />
           <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
           <Stack.Screen name="FindDoctor" component={FindDoctors} options={{ headerShown: false }} />
+          <Stack.Screen name="DoctorDetail" component={DoctorDetail} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

@@ -98,7 +98,7 @@ const Home = () => {
                   keyboardType="email-address"
                   value={search}
                   height={hp(2.5)}
-                  onChangeText={(text) => setEmail(text)}
+                  onChangeText={(text) => setSearch(text)}
               />
 
               <View>
