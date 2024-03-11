@@ -5,7 +5,8 @@ import {
 } from './metrics';
 
 //ATOMS
-const primary = '#199A8E'
+const primary = '#199A8E';
+const secondary = "#A1A8B0";
 const lilac = '#979CFF';
 const lilac2 = '#B8BDFF';
 const lilac3 = '#E5E7FF';
@@ -35,6 +36,7 @@ const dkgray = '#888888';
 
 export const color = {
   Primary: primary,
+  Secondary: secondary,
   Lilac: lilac,
   Lilac2: lilac2,
   Lilac3: lilac3,

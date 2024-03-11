@@ -37,7 +37,7 @@ const FindDoctors = () => {
             field: "Lungs Specialist",
             rating: 4.5,
             distance: "2 miles",
-            about: "Dr. John Doe is a highly experienced pulmonologist with expertise in treating various lung diseases.",
+            about: "Dr. John Doe is a highly experienced pulmonologist with expertise in treating various lung diseases. He has been practicing for over 15 years and has successfully treated thousands of patients. His dedication to patient care and continuous learning sets him apart in the field.",
             image: images.Doc1,
         },
         {
@@ -45,7 +45,7 @@ const FindDoctors = () => {
             field: "Dentist",
             rating: 4.8,
             distance: "1.5 miles",
-            about: "Dr. Jane Smith specializes in providing comprehensive dental care for patients of all ages.",
+            about: "Dr. Jane Smith specializes in providing comprehensive dental care for patients of all ages. She is known for her gentle approach and personalized treatment plans. With over 10 years of experience, she stays updated with the latest advancements in dentistry.",
             image: images.Doc2,
         },
         {
@@ -53,7 +53,7 @@ const FindDoctors = () => {
             field: "Psychiatrist",
             rating: 4.2,
             distance: "3 miles",
-            about: "Dr. David Johnson is dedicated to providing compassionate mental health care and treatment.",
+            about: "Dr. David Johnson is dedicated to providing compassionate mental health care and treatment. He believes in a holistic approach to mental well-being and integrates therapy with medication management. Dr. Johnson is committed to destigmatizing mental illness and promoting mental health awareness.",
             image: images.Doc4,
         },
         {
@@ -61,11 +61,11 @@ const FindDoctors = () => {
             field: "Cardiologist",
             rating: 4.5,
             distance: "3 miles",
-            about: "Dr. David Johnson is specilized and global awad winner in cardiology and world famous for her skills.",
+            about: "Dr. David Johnson is specilized and global awad winner in cardiology and world famous for her skills. She has authored numerous research papers and contributed to advancements in cardiac care. Dr. Maria is passionate about educating her patients on heart health and preventive measures.",
             image: images.Doc3,
-        },
-        
+        },    
     ];
+    
     
     const renderItem = ({item, index}) => {
         return(
