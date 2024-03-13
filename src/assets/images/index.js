@@ -49,4 +49,7 @@ export const LearnMore = require ('./LearnMore.png')
 export const Star = require ('./Star.png')
 export const Location = require ('./Location.png')
 export const Chat = require ('./Chat.png')
+export const Edit = require ('./EditSquare.png')
+export const Calendar2 = require ('./Calendar2.png')
+export const Visa = require ('./VISA.png')
 

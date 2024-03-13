@@ -39,7 +39,7 @@ const SuccessModal = (props) => {
                             <Text style={{ textAlign: 'center' }}>{props.text}</Text>
                         </Text>
                         <space.s4 />
-                        <Button title="Login" background={color.Primary} width={wp(56)} onPress={props.onPress} />
+                        <Button title= {props.buttonTitle ? props.buttonTitle : "Login"} background={color.Primary} width={wp(56)} onPress={props.onPress} />
                         <space.s4 />
                     </View>
                 </View>
@@ -75,5 +75,6 @@ const styles = StyleSheet.create({
         color: "#A1A8B0",
         fontSize: 16,
         lineHeight:22.7,
+        width: wp(65)
     }
 })

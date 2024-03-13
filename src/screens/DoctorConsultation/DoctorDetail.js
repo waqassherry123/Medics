@@ -27,7 +27,7 @@ const DoctorDetail = () => {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
     const currentDay = currentDate.getDate();
-    const hours = [ '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '7:00 PM', '8:00 PM' ];
+    const hours = [ '09:00 AM', '10:00 AM', '11:00 AM', '01:00 PM', '2:00 PM', '03:00 PM', '04:00 PM', '07:00 PM', '08:00 PM' ];
 
     // Get the number of days in the current month
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -93,21 +93,19 @@ const DoctorDetail = () => {
       <SafeAreaView>
           <View style={{ paddingHorizontal: wp(5), paddingVertical: hp(1) }}>
               <Header title="Doctor Detail" />
-              <space.s2 />
+              <space.s3 />
               <View style={styles.card}>
                   <Image source={item?.image} style={styles.image} />
                   <View style={styles.content}>
                       <Text style={styles.docName}>{item?.docName}</Text>
                       <Text style={styles.field}>{item?.field}</Text>
-                      <View style={{ height: hp(0.1), backgroundColor: color.Gray, width: wp(50), marginVertical: hp(1) }} />
-                      {/* <space.s3 /> */}
-                      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                      <View>
                           <View style={styles.ratingContainer}>
                               <Image source={images.Star} />
                               <Text style={styles.rating}>{item?.rating}</Text>
                           </View>
-                          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                              <Image source={images.Location} style={{ width: wp(4), height: wp(5), marginRight: wp(0.5) }} />
+                          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: hp(1) }}>
+                              <Image source={images.Location} style={{ width: wp(4), height: wp(4), marginRight: wp(0.5) }} />
                               <Text style={styles.distance}> {item.distance} away</Text>
                           </View>
                       </View>
@@ -162,7 +160,7 @@ const DoctorDetail = () => {
                   <View style={{ padding: wp(4), backgroundColor:"rgba(25, 154, 142, 0.2)", borderRadius: wp(4) }}>
                       <Image source={images.Chat} />
                   </View>
-                  <Button title="Book Apointment" background={color.Primary} width={wp(70)} onPress={() => navigation.navigate("Appointment")} />
+                  <Button title="Book Apointment" background={color.Primary} width={wp(70)} onPress={() => navigation.navigate("Appointment", {item: item, Date: formattedDate, Time: selectedTime})} />
               </View>
             
           </View>
@@ -175,25 +173,21 @@ export default DoctorDetail
 const styles = StyleSheet.create({
     card: {
         flexDirection: 'row',
-        borderRadius: wp(3),
-        backgroundColor: '#ffffff',
-        paddingVertical: hp(2),
-        paddingHorizontal: wp(5),
     },
     image: {
         width: wp(25),
         height: wp(25),
-        borderRadius:wp(50),
+        borderRadius:wp(2),
         marginRight: wp(3),
     },
     content: {
-        padding: 10,
+        // padding: 10,
     },
     docName: {
         fontSize: 16,
         fontWeight: '600',
         letterSpacing: 0.7,
-        marginBottom: hp(0.5)
+        marginBottom: hp(0.2)
     },
     field: {
         fontSize: 12,
@@ -203,13 +197,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent:"space-between", 
         alignItems:'center', 
-        backgroundColor: "rgba(25, 154, 142, 0.2)",  
+        backgroundColor: "rgba(25, 154, 142, 0.1)",  
         width: wp(11),
-        height: hp(3),
+        height: hp(2.8),
         paddingHorizontal: wp(1),
-        paddingVertical: hp(0.5),
         borderRadius: wp(1),
-        marginRight: wp(6)
+        marginTop: hp(1),
     },
     rating: {
         fontSize: 14,
@@ -218,7 +211,7 @@ const styles = StyleSheet.create({
     },
     distance: {
         fontSize: 14,
-        color: '#3B4453',
+        color: '#ADADAD',
     },
     about: {
         color: "#717784",
