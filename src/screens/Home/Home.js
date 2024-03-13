@@ -17,6 +17,8 @@ import DoctorCard from '../../components/DoctorCard';
 import { Title } from '../../components/common/Text';
 import { color } from '../../theme/colors';
 import HealthArticleCard from '../../components/HealthArticleCard';
+import TitleWithButton from '../../components/common/TitleWithButton';
+
 
 
 
@@ -75,6 +77,8 @@ const Home = () => {
     const handleCategoryPress = (category) => {
         if (category == "Doctor") {
             navigation.navigate("FindDoctor")
+        } if ( category == "Pharmacy"){
+            navigation.navigate("Pharmacy")
         }
     };
 
@@ -111,16 +115,13 @@ const Home = () => {
                     />
                 </View>
                 <space.s2 />
-                <LearnMoreCard data={LearnMore} />
+                <LearnMoreCard data={LearnMore} showBorder={true} buttonText="Learn More" />
                 <space.s2 />
-                <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                    <Title> Top Doctors </Title>
-                    <TouchableOpacity onPress={() => navigation.navigate("TopDoctors", { doctors: doctorDetails })}>
-                        <Text style={{ color: color.Primary, fontSize: 14, fontWeight: "400", }}>
-                            See all
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+                <TitleWithButton
+                    title="Top Doctors"
+                    onPress={() => navigation.navigate("TopDoctors", { doctors: doctorDetails })}
+                    buttonText="See all"
+                />
                 <space.s1 />
                 <FlatList
                     data={doctorDetails}
@@ -130,13 +131,12 @@ const Home = () => {
                     showsHorizontalScrollIndicator={false}
                 />
             <space.s2/>
-            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                    <Title> Health article </Title>
-                    <Text style={{ color: color.Primary, fontSize: 14, fontWeight: "400", }}>
-                        See all
-                    </Text>
-                </View>
-                <space.s1/>
+                <TitleWithButton
+                    title="Top Doctors"
+                    onPress={() => navigation.navigate("TopDoctors", { doctors: doctorDetails })}
+                    buttonText="See all"
+                />
+                <space.s1 />
                 <View style={styles.Articlecontainer}>
                     <HealthArticleCard
                         imageSource={images.Doc1}

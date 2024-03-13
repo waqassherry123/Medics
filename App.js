@@ -21,6 +21,8 @@ import Profile from './src/screens/Profile/Profile';
 import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
 import DoctorDetail from './src/screens/DoctorConsultation/DoctorDetail';
 import TopDoctors from './src/screens/Home/TopDoctors';
+import Pharmacy from './src/screens/Pharmacy/Pharmacy';
+
 
 
 //utils
@@ -92,6 +94,7 @@ const App = () => {
           <Stack.Screen name="FindDoctor" component={FindDoctors} options={{ headerShown: false }} />
           <Stack.Screen name="DoctorDetail" component={DoctorDetail} options={{ headerShown: false }} />
           <Stack.Screen name="TopDoctors" component={TopDoctors} options={{ headerShown: false }} />
+          <Stack.Screen name="Pharmacy" component={Pharmacy} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
