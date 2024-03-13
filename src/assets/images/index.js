@@ -49,13 +49,10 @@ export const LearnMore = require ('./LearnMore.png')
 export const Star = require ('./Star.png')
 export const Location = require ('./Location.png')
 export const Chat = require ('./Chat.png')
-<<<<<<< HEAD
 export const Prescription = require ('./Prescription.png')
 export const Prescription2 = require ('./Prescription2.png')
 export const Add = require ('./Add.png')
-=======
 export const Edit = require ('./EditSquare.png')
 export const Calendar2 = require ('./Calendar2.png')
 export const Visa = require ('./VISA.png')
->>>>>>> 872ad98dc3a84220e6705c776872a85d6300d2ee
 
