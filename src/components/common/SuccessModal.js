@@ -75,6 +75,6 @@ const styles = StyleSheet.create({
         color: "#A1A8B0",
         fontSize: 16,
         lineHeight:22.7,
-        width: wp(65)
+        textAlign:"center"
     }
 })
