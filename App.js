@@ -21,6 +21,8 @@ import Profile from './src/screens/Profile/Profile';
 import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
 import DoctorDetail from './src/screens/DoctorConsultation/DoctorDetail';
 import Appointment from './src/screens/DoctorConsultation/Appointment';
+import TopDoctors from './src/screens/Home/TopDoctors';
+
 
 //utils
 import * as images from "./src/assets/images/index";
@@ -91,6 +93,7 @@ const App = () => {
           <Stack.Screen name="FindDoctor" component={FindDoctors} options={{ headerShown: false }} />
           <Stack.Screen name="DoctorDetail" component={DoctorDetail} options={{ headerShown: false }} />
           <Stack.Screen name="Appointment" component={Appointment} options={{ headerShown: false }} />
+          <Stack.Screen name="TopDoctors" component={TopDoctors} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
