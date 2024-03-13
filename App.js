@@ -20,6 +20,7 @@ import Schedule from './src/screens/Schedule/Schedule';
 import Profile from './src/screens/Profile/Profile';
 import FindDoctors from './src/screens/DoctorConsultation/FindDoctors';
 import DoctorDetail from './src/screens/DoctorConsultation/DoctorDetail';
+import Appointment from './src/screens/DoctorConsultation/Appointment';
 import TopDoctors from './src/screens/Home/TopDoctors';
 import Pharmacy from './src/screens/Pharmacy/Pharmacy';
 
@@ -93,6 +94,7 @@ const App = () => {
           <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
           <Stack.Screen name="FindDoctor" component={FindDoctors} options={{ headerShown: false }} />
           <Stack.Screen name="DoctorDetail" component={DoctorDetail} options={{ headerShown: false }} />
+          <Stack.Screen name="Appointment" component={Appointment} options={{ headerShown: false }} />
           <Stack.Screen name="TopDoctors" component={TopDoctors} options={{ headerShown: false }} />
           <Stack.Screen name="Pharmacy" component={Pharmacy} options={{ headerShown: false }} />
         </Stack.Navigator>
