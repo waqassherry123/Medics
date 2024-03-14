@@ -23,7 +23,7 @@ import DoctorDetail from './src/screens/DoctorConsultation/DoctorDetail';
 import Appointment from './src/screens/DoctorConsultation/Appointment';
 import TopDoctors from './src/screens/Home/TopDoctors';
 import Pharmacy from './src/screens/Pharmacy/Pharmacy';
-
+import Chat from './src/screens/DoctorConsultation/Chat';
 
 
 //utils
@@ -97,6 +97,7 @@ const App = () => {
           <Stack.Screen name="Appointment" component={Appointment} options={{ headerShown: false }} />
           <Stack.Screen name="TopDoctors" component={TopDoctors} options={{ headerShown: false }} />
           <Stack.Screen name="Pharmacy" component={Pharmacy} options={{ headerShown: false }} />
+          <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

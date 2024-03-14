@@ -37,7 +37,7 @@ const Appointment = () => {
               visible={modalVisible}
               onPress={() => {
                   setModalVisible(false);
-                //   navigation.navigate('MainTabs', { screen: 'Home' });
+                  navigation.navigate("Chat");
               }}
           />
           <View style={{ paddingHorizontal: wp(5), paddingVertical: hp(1) }}>
